@@ -1,0 +1,657 @@
+<!doctype html>
+<!--
+  Maison Panthéon · site vitrine
+  Design read: landing éditoriale luxe pour un traiteur parisien (boutique,
+  évènementiel, location). Dials: VARIANCE 7 · MOTION 4 · DENSITY 3.
+  Construit selon le cadre taste-skill (zéro em-dash, accent unique grenat,
+  un seul système de radius, hero qui tient dans le viewport, motion motivée).
+-->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maison Panthéon · Traiteur, évènementiel & location</title>
+  <meta name="description" content="Maison Panthéon, traiteur parisien au pied du Panthéon : boutique traiteur, réceptions sur mesure et location de matériel évènementiel." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+/* =========================================================================
+   Maison Panthéon · feuille de style
+   Système verrouillé : 1 accent (grenat), 1 radius (2px), thème clair unique.
+   Palette ivoire/encre volontairement éloignée du beige+laiton par défaut.
+   ========================================================================= */
+
+:root {
+  --paper:   #f6f1e7;   /* ivoire chaud */
+  --paper-2: #efe8da;   /* ivoire un ton plus profond */
+  --ink:     #1b1714;   /* encre presque noire */
+  --ink-soft:#544c44;   /* texte secondaire (contraste AA sur paper) */
+  --line:    #d8cdb9;   /* filets */
+  --accent:  #7a2230;   /* grenat, accent unique */
+  --accent-d:#5d1722;   /* grenat hover */
+  --night:   #181412;   /* sections sombres */
+  --on-night:#f1e9da;
+
+  --radius: 2px;
+  --maxw: 1240px;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans:  "Outfit", system-ui, -apple-system, sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.06rem);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: 0.6rem 1rem;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Typographie partagée ---------- */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 500; font-size: 0.92rem;
+  letter-spacing: 0.02em; white-space: nowrap;
+  padding: 0.9rem 1.6rem; border-radius: var(--radius);
+  border: 1px solid transparent; cursor: pointer;
+  text-decoration: none; transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
+}
+.btn--solid { background: var(--accent); color: #fff; }
+.btn--solid:hover { background: var(--accent-d); transform: translateY(-2px); }
+.btn--ghost { border-color: var(--ink); color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+.btn--block { width: 100%; padding-block: 1.05rem; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-weight: 500; text-decoration: none; color: var(--ink);
+  border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+  width: fit-content; transition: gap .3s var(--ease), color .3s var(--ease);
+}
+.link-arrow::after { content: "\2192"; color: var(--accent); transition: transform .3s var(--ease); }
+.link-arrow:hover { color: var(--accent); }
+.link-arrow:hover::after { transform: translateX(5px); }
+
+/* =========================================================================
+   NAVIGATION
+   ========================================================================= */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+  height: 76px; display: flex; align-items: center; gap: 2rem;
+}
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.brand__mark {
+  font-family: var(--serif); font-weight: 600; font-size: 1.05rem;
+  border: 1px solid var(--ink); border-radius: var(--radius);
+  width: 2.1rem; height: 2.1rem; display: grid; place-items: center;
+}
+.brand__name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.01em; }
+.nav__links { margin-left: auto; display: flex; gap: 1.9rem; }
+.nav__links a {
+  text-decoration: none; font-size: 0.92rem; position: relative; padding: 4px 0;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+  background: var(--accent); transition: width .3s var(--ease);
+}
+.nav__links a:hover::after { width: 100%; }
+.nav__cta { margin-left: 0.5rem; }
+
+.nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; }
+.nav__burger span { width: 24px; height: 2px; background: var(--ink); transition: transform .3s var(--ease), opacity .3s; }
+.nav__burger[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+.nav__mobile { display: none; flex-direction: column; padding: 0.5rem var(--pad) 1.2rem; border-bottom: 1px solid var(--line); background: var(--paper); }
+.nav__mobile a { padding: 0.8rem 0; text-decoration: none; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+.nav__mobile a:last-child { color: var(--accent); border-bottom: 0; }
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 5.5rem) var(--pad) clamp(3rem, 5vw, 5rem);
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem);
+  align-items: center; min-height: calc(100svh - 76px);
+}
+.hero__title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(2.8rem, 1.5rem + 6vw, 6rem);
+  line-height: 1.02; letter-spacing: -0.015em;
+  margin: 0 0 1.4rem;
+}
+.hero__title em { font-style: italic; color: var(--accent); }
+.hero__lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 34ch; margin: 0 0 2rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+.hero__media { position: relative; margin: 0; }
+.hero__media img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: var(--radius); filter: saturate(0.92) contrast(1.03);
+}
+.hero__caption {
+  position: absolute; left: -0.5rem; bottom: 1.2rem;
+  background: var(--paper); color: var(--ink);
+  font-size: 0.78rem; letter-spacing: 0.04em; padding: 0.5rem 0.9rem;
+  border-left: 2px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* =========================================================================
+   MANIFESTE
+   ========================================================================= */
+.manifeste { background: var(--night); color: var(--on-night); }
+.manifeste__text {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 7rem) var(--pad);
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: clamp(1.6rem, 1rem + 2.6vw, 3rem); line-height: 1.3;
+  max-width: 26ch; text-wrap: balance;
+}
+.manifeste__text { margin-inline: auto; }
+
+/* =========================================================================
+   SERVICES (rangées éditoriales)
+   ========================================================================= */
+.services { max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 6.5rem) var(--pad); }
+.service {
+  display: grid; grid-template-columns: auto 1.1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem); align-items: center;
+  padding: clamp(2.5rem, 4vw, 4rem) 0; border-top: 1px solid var(--line);
+}
+.services .service:last-child { border-bottom: 1px solid var(--line); }
+.service--reverse .service__media { order: -1; }
+.service__index {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--accent); line-height: 1; align-self: start;
+}
+.service__title { font-family: var(--serif); font-weight: 500; font-size: clamp(1.7rem, 1rem + 2vw, 2.6rem); margin: 0 0 0.8rem; line-height: 1.05; }
+.service__lead { color: var(--ink-soft); margin: 0 0 1.4rem; max-width: 42ch; }
+.service__points { list-style: none; padding: 0; margin: 0 0 1.6rem; display: grid; gap: 0.55rem; }
+.service__points li { position: relative; padding-left: 1.4rem; font-size: 0.98rem; }
+.service__points li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.6rem; height: 1px; background: var(--accent); }
+.service__media img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: var(--radius); filter: saturate(0.92) contrast(1.03);
+}
+
+/* =========================================================================
+   GALERIE
+   ========================================================================= */
+.galerie { background: var(--paper-2); }
+.galerie__head { max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 6rem) var(--pad) 1.5rem; }
+.galerie__grid {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) clamp(3.5rem, 6vw, 6rem);
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 1rem;
+}
+.galerie__item { margin: 0; overflow: hidden; border-radius: var(--radius); }
+.galerie__item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.03); transition: transform .6s var(--ease); }
+.galerie__item:hover img { transform: scale(1.05); }
+.galerie__item--tall { grid-row: span 2; }
+.galerie__item--wide { grid-column: span 2; }
+
+/* =========================================================================
+   MAISON
+   ========================================================================= */
+.maison {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 6.5rem) var(--pad);
+  display: grid; grid-template-columns: 1fr 0.85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+}
+.maison__text p { color: var(--ink-soft); max-width: 50ch; margin: 1.6rem 0 0; }
+.maison__stats { display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 3rem); margin: 2.4rem 0 0; }
+.maison__stats dt { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+.maison__stats dd { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.maison__media img { width: 100%; aspect-ratio: 5 / 6; object-fit: cover; border-radius: var(--radius); filter: saturate(0.92) contrast(1.03); }
+
+/* =========================================================================
+   CONTACT
+   ========================================================================= */
+.contact {
+  background: var(--night); color: var(--on-night);
+}
+.contact {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem);
+  max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 7rem) var(--pad);
+}
+.contact .section-title { color: var(--on-night); }
+.contact .section-title em,
+.contact .eyebrow { color: #d98a96; } /* grenat éclairci pour contraste AA sur fond sombre */
+.contact__lead { color: #cabfb0; margin: 1.2rem 0 2rem; max-width: 40ch; }
+.contact__coords { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.contact__coords li { font-size: 1rem; }
+.contact__coords span { display: block; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #a99c8c; margin-bottom: 0.2rem; }
+
+.form { display: grid; gap: 1.1rem; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.field { display: grid; gap: 0.45rem; }
+.field > span { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #cabfb0; }
+.field input, .field select, .field textarea {
+  font-family: var(--sans); font-size: 1rem; color: var(--on-night);
+  background: #221d1a; border: 1px solid #3a322d; border-radius: var(--radius);
+  padding: 0.85rem 1rem; transition: border-color .3s var(--ease);
+}
+.field input::placeholder, .field textarea::placeholder { color: #8c8073; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #d98a96; outline: none; }
+.field textarea { resize: vertical; }
+.field select { appearance: none; }
+.form__note { font-size: 0.9rem; color: #d98a96; min-height: 1.2rem; margin: 0; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.footer { background: var(--paper-2); border-top: 1px solid var(--line); }
+.footer__inner {
+  max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 4vw, 4rem) var(--pad) 1.5rem;
+  display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;
+}
+.footer__brand { display: flex; align-items: center; gap: 1rem; }
+.footer__brand p { margin: 0; font-family: var(--serif); font-size: 1.2rem; }
+.footer__brand span { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); }
+.footer__links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+.footer__links a { text-decoration: none; font-size: 0.92rem; }
+.footer__links a:hover { color: var(--accent); }
+.footer__legal { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) 2rem; font-size: 0.8rem; color: var(--ink-soft); }
+
+/* =========================================================================
+   REVEAL (motion motivée, respecte prefers-reduced-motion)
+   ========================================================================= */
+[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .galerie__item img, .btn { transition: none; }
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 900px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: flex; }
+  .nav__mobile:not([hidden]) { display: flex; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 2.5rem; gap: 2.5rem; }
+  .hero__media { order: -1; }
+  .hero__media img { aspect-ratio: 16 / 11; }
+
+  .service, .service--reverse { grid-template-columns: auto 1fr; }
+  .service__media { grid-column: 1 / -1; order: 0 !important; margin-top: 0.5rem; }
+  .service__media img { aspect-ratio: 16 / 10; }
+
+  .galerie__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+  .maison { grid-template-columns: 1fr; }
+  .maison__media { order: -1; }
+  .contact { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  .service { grid-template-columns: 1fr; }
+  .service__index { font-size: 1.6rem; }
+  .galerie__grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .galerie__item--wide, .galerie__item--tall { grid-column: auto; grid-row: auto; }
+  .form__row { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="nav" id="haut">
+    <div class="nav__inner">
+      <a class="brand" href="#haut" aria-label="Maison Panthéon, accueil">
+        <span class="brand__mark">M·P</span>
+        <span class="brand__name">Maison Panthéon</span>
+      </a>
+      <nav class="nav__links" aria-label="Navigation principale">
+        <a href="#boutique">Boutique</a>
+        <a href="#evenementiel">Évènementiel</a>
+        <a href="#location">Location</a>
+        <a href="#maison">La maison</a>
+      </nav>
+      <a class="btn btn--solid nav__cta" href="#contact">Demander un devis</a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__mobile" id="menu-mobile" aria-label="Navigation mobile" hidden>
+      <a href="#boutique">Boutique</a>
+      <a href="#evenementiel">Évènementiel</a>
+      <a href="#location">Location</a>
+      <a href="#maison">La maison</a>
+      <a href="#contact">Demander un devis</a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+
+    <!-- HERO · asymmetric split éditorial -->
+    <section class="hero" aria-labelledby="hero-titre">
+      <div class="hero__text" data-reveal>
+        <p class="eyebrow">Traiteur · Paris 5e, au pied du Panthéon</p>
+        <h1 id="hero-titre" class="hero__title">
+          L'art de recevoir,<br /><em>fait maison</em>.
+        </h1>
+        <p class="hero__lead">
+          Une boutique traiteur, des réceptions sur mesure et la location du
+          matériel pour vos évènements.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#contact">Composer ma réception</a>
+          <a class="btn btn--ghost" href="#boutique">Voir la boutique</a>
+        </div>
+      </div>
+      <figure class="hero__media" data-reveal>
+        <img
+          src="https://picsum.photos/seed/maisonpantheon-hero/1100/1400"
+          alt="Table dressée par Maison Panthéon"
+          loading="eager" width="1100" height="1400" />
+        <figcaption class="hero__caption">Réception privée · place du Panthéon</figcaption>
+      </figure>
+    </section>
+
+    <!-- BANDEAU manifeste -->
+    <section class="manifeste" aria-label="Notre approche">
+      <p class="manifeste__text" data-reveal>
+        Nous cuisinons des produits de saison, dressons des tables qui ont du
+        caractère et confions à chaque évènement le soin d'une maison.
+      </p>
+    </section>
+
+    <!-- SERVICES · rangées éditoriales numérotées (pas de cartes identiques) -->
+    <section class="services" aria-label="Nos services">
+
+      <article class="service" id="boutique" data-reveal>
+        <div class="service__index">01</div>
+        <div class="service__body">
+          <h2 class="service__title">La boutique traiteur</h2>
+          <p class="service__lead">
+            À emporter ou à savourer sur place : plats du jour, pièces salées,
+            pâtisseries et plateaux de saison, préparés chaque matin.
+          </p>
+          <ul class="service__points">
+            <li>Plat du jour & formules midi</li>
+            <li>Plateaux apéritifs et planches</li>
+            <li>Commandes à l'avance pour vos tablées</li>
+          </ul>
+          <a class="link-arrow" href="#contact">Commander un plateau</a>
+        </div>
+        <figure class="service__media">
+          <img src="https://picsum.photos/seed/mp-boutique/900/1100"
+            alt="Comptoir de la boutique traiteur" loading="lazy"
+            width="900" height="1100" />
+        </figure>
+      </article>
+
+      <article class="service service--reverse" id="evenementiel" data-reveal>
+        <div class="service__index">02</div>
+        <div class="service__body">
+          <h2 class="service__title">Traiteur évènementiel</h2>
+          <p class="service__lead">
+            Mariages, dîners, cocktails d'entreprise : un menu pensé avec vous,
+            un service complet et une équipe en salle le jour J.
+          </p>
+          <ul class="service__points">
+            <li>Cocktails dînatoires & buffets</li>
+            <li>Menus assis et service à l'assiette</li>
+            <li>Chef et personnel de salle sur demande</li>
+          </ul>
+          <a class="link-arrow" href="#contact">Imaginer mon menu</a>
+        </div>
+        <figure class="service__media">
+          <img src="https://picsum.photos/seed/mp-evenement/900/1100"
+            alt="Buffet de réception" loading="lazy"
+            width="900" height="1100" />
+        </figure>
+      </article>
+
+      <article class="service" id="location" data-reveal>
+        <div class="service__index">03</div>
+        <div class="service__body">
+          <h2 class="service__title">Location évènementielle</h2>
+          <p class="service__lead">
+            Tout le matériel pour recevoir : mobilier, arts de la table,
+            verrerie et équipement, livrés, dressés et repris.
+          </p>
+          <ul class="service__points">
+            <li>Tables, chaises & mange-debout</li>
+            <li>Vaisselle, verrerie, nappage</li>
+            <li>Livraison, installation et reprise</li>
+          </ul>
+          <a class="link-arrow" href="#contact">Réserver le matériel</a>
+        </div>
+        <figure class="service__media">
+          <img src="https://picsum.photos/seed/mp-location/900/1100"
+            alt="Arts de la table en location" loading="lazy"
+            width="900" height="1100" />
+        </figure>
+      </article>
+
+    </section>
+
+    <!-- GALERIE · mosaïque aérée -->
+    <section class="galerie" aria-label="Galerie">
+      <div class="galerie__head" data-reveal>
+        <p class="eyebrow">En images</p>
+        <h2 class="section-title">Quelques tablées</h2>
+      </div>
+      <div class="galerie__grid">
+        <figure class="galerie__item galerie__item--tall" data-reveal>
+          <img src="https://picsum.photos/seed/mp-g1/800/1100" alt="Dressage de table" loading="lazy" width="800" height="1100" />
+        </figure>
+        <figure class="galerie__item" data-reveal>
+          <img src="https://picsum.photos/seed/mp-g2/800/700" alt="Pièces salées" loading="lazy" width="800" height="700" />
+        </figure>
+        <figure class="galerie__item" data-reveal>
+          <img src="https://picsum.photos/seed/mp-g3/800/700" alt="Cocktail dînatoire" loading="lazy" width="800" height="700" />
+        </figure>
+        <figure class="galerie__item galerie__item--wide" data-reveal>
+          <img src="https://picsum.photos/seed/mp-g4/1300/700" alt="Buffet dressé" loading="lazy" width="1300" height="700" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- MAISON · histoire + ancrage Panthéon -->
+    <section class="maison" id="maison" aria-labelledby="maison-titre">
+      <div class="maison__text" data-reveal>
+        <p class="eyebrow">La maison</p>
+        <h2 id="maison-titre" class="section-title">
+          Une cuisine de quartier,<br /><em>une exigence de grande table</em>.
+        </h2>
+        <p>
+          Installés au cœur du 5e arrondissement, nous travaillons avec des
+          producteurs choisis et une carte qui suit les saisons. De la vitrine
+          de la boutique au plus grand des évènements, c'est la même main.
+        </p>
+        <dl class="maison__stats">
+          <div><dt>2016</dt><dd>Ouverture de la boutique</dd></div>
+          <div><dt>+400</dt><dd>Évènements servis</dd></div>
+          <div><dt>5e</dt><dd>Arrondissement, Paris</dd></div>
+        </dl>
+      </div>
+      <figure class="maison__media" data-reveal>
+        <img src="https://picsum.photos/seed/mp-maison/1000/1200" alt="L'équipe de Maison Panthéon" loading="lazy" width="1000" height="1200" />
+      </figure>
+    </section>
+
+    <!-- CONTACT · devis -->
+    <section class="contact" id="contact" aria-labelledby="contact-titre">
+      <div class="contact__intro" data-reveal>
+        <p class="eyebrow">Parlons-en</p>
+        <h2 id="contact-titre" class="section-title">Demander un devis</h2>
+        <p class="contact__lead">
+          Dites-nous tout sur votre projet. Nous revenons vers vous sous 48 h
+          avec une proposition sur mesure.
+        </p>
+        <ul class="contact__coords">
+          <li><span>Adresse</span> 12 rue Soufflot, 75005 Paris</li>
+          <li><span>Téléphone</span> 01 23 45 67 89</li>
+          <li><span>Courriel</span> bonjour@maisonpantheon.fr</li>
+        </ul>
+      </div>
+
+      <form class="form" data-reveal novalidate>
+        <div class="form__row">
+          <label class="field">
+            <span>Nom</span>
+            <input type="text" name="nom" autocomplete="name" required />
+          </label>
+          <label class="field">
+            <span>Courriel</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+        </div>
+        <label class="field">
+          <span>Type de prestation</span>
+          <select name="prestation">
+            <option>Boutique traiteur</option>
+            <option>Traiteur évènementiel</option>
+            <option>Location de matériel</option>
+            <option>Plusieurs prestations</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Votre projet</span>
+          <textarea name="message" rows="4" placeholder="Date, nombre de convives, envies..."></textarea>
+        </label>
+        <button class="btn btn--solid btn--block" type="submit">Envoyer ma demande</button>
+        <p class="form__note" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">M·P</span>
+        <p>Maison Panthéon<br /><span>Traiteur, évènementiel & location · Paris 5e</span></p>
+      </div>
+      <nav class="footer__links" aria-label="Pied de page">
+        <a href="#boutique">Boutique</a>
+        <a href="#evenementiel">Évènementiel</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Devis</a>
+      </nav>
+    </div>
+    <p class="footer__legal">© 2026 Maison Panthéon · Tous droits réservés</p>
+  </footer>
+
+  <script>
+// Maison Panthéon · interactions
+// Motion motivée : reveal au scroll (IntersectionObserver, jamais d'écouteur
+// scroll sur l'état), menu mobile, accusé d'envoi du formulaire.
+
+(function () {
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Reveal au scroll ---- */
+  var revealables = document.querySelectorAll("[data-reveal]");
+  if (reduced || !("IntersectionObserver" in window)) {
+    revealables.forEach(function (el) { el.classList.add("is-visible"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---- Menu mobile ---- */
+  var burger = document.querySelector(".nav__burger");
+  var menu = document.getElementById("menu-mobile");
+  if (burger && menu) {
+    burger.addEventListener("click", function () {
+      var open = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!open));
+      burger.setAttribute("aria-label", open ? "Ouvrir le menu" : "Fermer le menu");
+      menu.hidden = open;
+    });
+    menu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        burger.setAttribute("aria-expanded", "false");
+        menu.hidden = true;
+      });
+    });
+  }
+
+  /* ---- Formulaire (démo front, sans backend) ---- */
+  var form = document.querySelector(".form");
+  if (form) {
+    var note = form.querySelector(".form__note");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nom = form.querySelector('[name="nom"]');
+      var email = form.querySelector('[name="email"]');
+      if (!nom.value.trim() || !email.value.trim()) {
+        note.textContent = "Merci de renseigner votre nom et votre courriel.";
+        return;
+      }
+      note.textContent = "Merci ! Votre demande est bien reçue, réponse sous 48 h.";
+      form.reset();
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
