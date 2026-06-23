@@ -1,10 +1,10 @@
 <!doctype html>
 <!--
   Maison Panthéon · site vitrine
-  DA: terracotta + bleu + crème, inspirée de la boutique (terrazzo, arches,
-  bois clair). Concept complet: boutique / épicerie de bouche + événementiel.
-  Construit selon le cadre taste-skill (zéro em-dash, palette de marque
-  verrouillée, un seul système de radius, hero contenu, motion motivée, AA).
+  DA: terracotta + bleu + crème, inspirée de la boutique.
+  Photos: voir assets/photos/LISEZ-MOI.txt (8 fichiers à déposer).
+  Construit selon le cadre taste-skill (zéro em-dash, palette verrouillée,
+  un seul système de radius, hero contenu, motion motivée, AA).
 -->
 <html lang="fr">
 <head>
@@ -459,8 +459,9 @@ a { color: inherit; }
       </div>
       <figure class="hero__media" data-reveal>
         <img class="arch"
-          src="https://picsum.photos/seed/mp-hero/1000/1280"
-          alt="L'intérieur de la boutique Maison Panthéon"
+          src="assets/photos/salle-vitrail.jpg"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-hero/1000/1280'"
+          alt="Grande salle voûtée et table dressée par Maison Panthéon"
           loading="eager" width="1000" height="1280" />
       </figure>
     </section>
@@ -468,8 +469,9 @@ a { color: inherit; }
     <!-- LA MAISON -->
     <section class="maison" id="maison" aria-labelledby="maison-titre">
       <figure class="maison__media" data-reveal>
-        <img class="arch" src="https://picsum.photos/seed/mp-maison/1000/1200"
-          alt="Le comptoir de Maison Panthéon" loading="lazy" width="1000" height="1200" />
+        <img class="arch" src="assets/photos/plateau-fromages.jpg"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-maison/1000/1200'"
+          alt="Planche de fromages et charcuteries de Maison Panthéon" loading="lazy" width="1000" height="1200" />
         <figcaption class="maison__badge">
           <strong>2025</strong>
           <span>Une maison née d'une passion</span>
@@ -506,25 +508,25 @@ a { color: inherit; }
       <p class="univers__group" data-reveal>En boutique</p>
       <div class="cards">
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-u1/700/760" alt="Comptoir traiteur" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/chefs-prepa.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Préparation traiteur sur place" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Traiteur sur place</h3>
           <p class="card__text">Plats du jour, pièces salées et plateaux préparés chaque matin, à emporter ou à savourer sur place.</p>
           <a class="link-arrow" href="#traiteur">Découvrir</a>
         </article>
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-u2/700/760" alt="Étal de fromages" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/plateau-fromages.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u2/700/760'" alt="Étal de fromages et charcuteries" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Fromages & crèmerie</h3>
           <p class="card__text">Une sélection de fromages affinés et de produits laitiers fermiers, à la coupe.</p>
           <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-u3/700/760" alt="Cave à vins" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/cave-vins.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u3/700/760'" alt="Cave à vins" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Cave & vins</h3>
           <p class="card__text">Vins de vignerons et belles étiquettes pour accompagner chacun de vos moments.</p>
           <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-u4/700/760" alt="Rayon épicerie fine" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/epicerie-fine.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u4/700/760'" alt="Rayon épicerie fine" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Épicerie fine</h3>
           <p class="card__text">Conserves, condiments et douceurs de petits producteurs, sélectionnés avec soin.</p>
           <a class="link-arrow" href="#boutique">Découvrir</a>
@@ -534,19 +536,19 @@ a { color: inherit; }
       <p class="univers__group" data-reveal>Pour vos événements</p>
       <div class="cards cards--three">
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-e1/700/760" alt="Réception traiteur" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/mini-burgers.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-e1/700/760'" alt="Pièces cocktail de réception" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Traiteur & réceptions</h3>
           <p class="card__text">Buffets, plateaux et menus sur mesure pour vos événements, du plus intime au plus grand.</p>
           <a class="link-arrow" href="#traiteur">Découvrir</a>
         </article>
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-e2/700/760" alt="Matériel de réception" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/salle-tables.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-e2/700/760'" alt="Salle de réception, tables et chaises" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Location de matériel</h3>
           <p class="card__text">Tentes, tables, assises, vaisselle, arches florales : tout l'équipement pour recevoir.</p>
           <a class="link-arrow" href="#location">Découvrir</a>
         </article>
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://picsum.photos/seed/mp-e3/700/760" alt="Photographie d'événement" loading="lazy" width="700" height="760" /></figure>
+          <figure class="card__media"><img class="arch arch--sm" src="assets/photos/table-ronde.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-e3/700/760'" alt="Table dressée, photographie d'événement" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Photographie</h3>
           <p class="card__text">Un regard qui capture les instants, les détails et l'émotion de vos réceptions.</p>
           <a class="link-arrow" href="#photographie">Découvrir</a>
@@ -580,7 +582,7 @@ a { color: inherit; }
           </ul>
           <p class="split__note">Nos menus sont conçus avec des produits frais, locaux et de saison.</p>
         </div>
-        <figure class="split__media"><img src="https://picsum.photos/seed/mp-precommande/1000/760" alt="Plateau de pièces cocktail" loading="lazy" width="1000" height="760" /></figure>
+        <figure class="split__media"><img src="assets/photos/service-pieces.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-precommande/1000/760'" alt="Service de pièces cocktail" loading="lazy" width="1000" height="760" /></figure>
       </article>
 
       <article class="split split--reverse" data-reveal>
@@ -594,7 +596,7 @@ a { color: inherit; }
             <li>Chef et équipe dédiée</li>
           </ul>
         </div>
-        <figure class="split__media"><img src="https://picsum.photos/seed/mp-surplace/1000/760" alt="Chef cuisinant sur place" loading="lazy" width="1000" height="760" /></figure>
+        <figure class="split__media"><img src="assets/photos/chef-brasero.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-surplace/1000/760'" alt="Chef cuisinant au brasero" loading="lazy" width="1000" height="760" /></figure>
       </article>
     </section>
 
@@ -624,9 +626,9 @@ a { color: inherit; }
         <article class="produit" data-cat="florale"><figure><img src="https://picsum.photos/seed/mp-arche1/600/600" alt="Arche florale circulaire" loading="lazy" width="600" height="600" /></figure><h3>Arche florale circulaire</h3><p class="prix">200 €</p></article>
         <article class="produit" data-cat="florale"><figure><img src="https://picsum.photos/seed/mp-arche2/600/600" alt="Arche florale arrondie" loading="lazy" width="600" height="600" /></figure><h3>Arche florale arrondie</h3><p class="prix">200 €</p></article>
         <article class="produit" data-cat="tables"><figure><img src="https://picsum.photos/seed/mp-tablehaute/600/600" alt="Table haute" loading="lazy" width="600" height="600" /></figure><h3>Table haute</h3><p class="prix">8 €</p></article>
-        <article class="produit" data-cat="tables"><figure><img src="https://picsum.photos/seed/mp-tableronde/600/600" alt="Table ronde" loading="lazy" width="600" height="600" /></figure><h3>Table ronde</h3><p class="prix">10 €</p></article>
+        <article class="produit" data-cat="tables"><figure><img src="assets/photos/table-ronde.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-tableronde/600/600'" alt="Table ronde dressée" loading="lazy" width="600" height="600" /></figure><h3>Table ronde</h3><p class="prix">10 €</p></article>
         <article class="produit" data-cat="tables"><figure><img src="https://picsum.photos/seed/mp-tablerect/600/600" alt="Table rectangulaire" loading="lazy" width="600" height="600" /></figure><h3>Table rectangulaire</h3><p class="prix">8 €</p></article>
-        <article class="produit" data-cat="assises"><figure><img src="https://picsum.photos/seed/mp-chaise/600/600" alt="Chaises chiavari" loading="lazy" width="600" height="600" /></figure><h3>Chaises chiavari</h3><p class="prix">3 €</p></article>
+        <article class="produit" data-cat="assises"><figure><img src="assets/photos/salle-tables.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-chaise/600/600'" alt="Chaises chiavari" loading="lazy" width="600" height="600" /></figure><h3>Chaises chiavari</h3><p class="prix">3 €</p></article>
         <article class="produit" data-cat="assises"><figure><img src="https://picsum.photos/seed/mp-banc/600/600" alt="Banc pliant" loading="lazy" width="600" height="600" /></figure><h3>Banc pliant</h3><p class="prix">4 €</p></article>
         <article class="produit" data-cat="vaisselle"><figure><img src="https://picsum.photos/seed/mp-verres/600/600" alt="Verres" loading="lazy" width="600" height="600" /></figure><h3>Verres</h3><p class="prix">Sur devis</p></article>
         <article class="produit" data-cat="vaisselle"><figure><img src="https://picsum.photos/seed/mp-couverts/600/600" alt="Couverts" loading="lazy" width="600" height="600" /></figure><h3>Couverts</h3><p class="prix">Sur devis</p></article>
@@ -649,9 +651,9 @@ a { color: inherit; }
         <a class="btn btn--ghost btn--light" href="#contact">Réserver un photographe</a>
       </div>
       <div class="photo__grid" data-reveal>
-        <figure class="photo__item photo__item--tall"><img src="https://picsum.photos/seed/mp-ph1/700/980" alt="Détail de réception" loading="lazy" width="700" height="980" /></figure>
-        <figure class="photo__item"><img src="https://picsum.photos/seed/mp-ph2/700/640" alt="Table dressée" loading="lazy" width="700" height="640" /></figure>
-        <figure class="photo__item"><img src="https://picsum.photos/seed/mp-ph3/700/640" alt="Pièces cocktail" loading="lazy" width="700" height="640" /></figure>
+        <figure class="photo__item photo__item--tall"><img src="assets/photos/salle-tables.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-ph1/700/980'" alt="Salle de réception dressée" loading="lazy" width="700" height="980" /></figure>
+        <figure class="photo__item"><img src="assets/photos/table-ronde.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-ph2/700/640'" alt="Table dressée vue de dessus" loading="lazy" width="700" height="640" /></figure>
+        <figure class="photo__item"><img src="assets/photos/mini-burgers.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-ph3/700/640'" alt="Pièces cocktail" loading="lazy" width="700" height="640" /></figure>
       </div>
     </section>
 
@@ -670,7 +672,7 @@ a { color: inherit; }
         </div>
       </div>
       <figure class="boutique__media" data-reveal>
-        <img class="arch" src="https://picsum.photos/seed/mp-boutique/1000/1240" alt="La boutique Maison Panthéon" loading="lazy" width="1000" height="1240" />
+        <img class="arch" src="assets/photos/salle-vitrail.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-boutique/1000/1240'" alt="Réception Maison Panthéon" loading="lazy" width="1000" height="1240" />
       </figure>
     </section>
 

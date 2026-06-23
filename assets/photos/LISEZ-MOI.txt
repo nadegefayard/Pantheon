@@ -1,0 +1,51 @@
+PHOTOS DU SITE — Maison Panthéon
+================================
+
+Le site est déjà câblé pour vos photos. Il suffit de déposer dans CE dossier
+(assets/photos/) les 8 fichiers ci-dessous, avec EXACTEMENT ces noms.
+
+Tant qu'un fichier est absent, une image de substitution s'affiche
+automatiquement à la place (le site reste donc toujours présentable).
+
+LES 8 FICHIERS À DÉPOSER
+------------------------
+  salle-vitrail.jpg     Grande salle voûtée, rosace vitrail, table dressée (VERTICAL)
+  salle-tables.jpg      Salle de réception, chaises chiavari, tables rondes (VERTICAL)
+  table-ronde.jpg       Table ronde dressée vue de dessus, chemin vert (PAYSAGE)
+  plateau-fromages.jpg  Planche de fromages et charcuteries, raisin (VERTICAL)
+  mini-burgers.jpg      Mini-burgers sur assiette (VERTICAL)
+  service-pieces.jpg    Serveur présentant un plateau de pièces (VERTICAL)
+  chefs-prepa.jpg       Deux chefs en pleine préparation (PAYSAGE)
+  chef-brasero.jpg      Chef cuisinant au brasero / plancha (PAYSAGE)
+
+OÙ CHAQUE PHOTO APPARAIT
+------------------------
+  salle-vitrail.jpg .... Accueil (grande image) + section La Boutique
+  plateau-fromages.jpg . La Maison + vignette "Fromages & crèmerie"
+  chefs-prepa.jpg ...... vignette "Traiteur sur place"
+  mini-burgers.jpg ..... vignette "Traiteur & réceptions" + galerie Photographie
+  salle-tables.jpg ..... vignette "Location" + galerie Photo + produit "Chaises chiavari"
+  table-ronde.jpg ...... vignette "Photographie" + galerie + produit "Table ronde"
+  service-pieces.jpg ... Traiteur "en pré-commande"
+  chef-brasero.jpg ..... Traiteur "sur place"
+
+PHOTOS ENCORE MANQUANTES (substitution en attendant)
+----------------------------------------------------
+  cave-vins.jpg ......... vignette "Cave & vins"   (photo de bouteilles / cave)
+  epicerie-fine.jpg ..... vignette "Épicerie fine"  (rayon, conserves, condiments)
+  + l'intérieur de la BOUTIQUE quand vous l'aurez (pour Accueil et La Boutique)
+  + les vrais visuels du CATALOGUE de location (tentes, verres, arches, etc.)
+
+COMMENT LES DÉPOSER
+-------------------
+Le plus simple, sur GitHub : ouvrez le dossier assets/photos/ du dépôt,
+bouton "Add file" > "Upload files", glissez vos photos, et renommez-les
+avec les noms exacts ci-dessus avant de valider.
+
+CONSEILS
+--------
+- Respectez l'orientation indiquée (VERTICAL / PAYSAGE) pour un cadrage net.
+- Largeur conseillée >= 1200 px, format .jpg.
+- Vous pouvez aussi me donner des liens publics vers vos photos : je les
+  brancherai directement, et elles s'afficheront aussi dans le fichier
+  d'aperçu.
