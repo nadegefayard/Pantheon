@@ -1,41 +1,48 @@
 # Maison Panthéon
 
-Site vitrine d'un traiteur parisien : **boutique traiteur**, **traiteur évènementiel**
-et **location de matériel évènementiel**.
+Site vitrine de **Maison Panthéon** : épicerie de bouche et traiteur.
+La boutique (traiteur sur place, fromages & crèmerie, cave & vins, épicerie fine)
+et l'événementiel (traiteur de réceptions, location de matériel, photographie).
 
-Site statique (HTML / CSS / JS), sans dépendance ni build. Il suffit d'ouvrir
-`index.html` dans un navigateur.
+Site statique (HTML / CSS / JS), sans dépendance ni build. Ouvrez simplement
+`index.html` dans un navigateur, ou le fichier autonome `maison-pantheon.html`.
 
 ## Structure
 
 ```
-index.html   structure et contenu
-styles.css   direction artistique (palette, typo, layout, responsive)
-script.js    reveal au scroll, menu mobile, formulaire de démo
+index.html            structure et contenu
+styles.css            direction artistique (terracotta / bleu / crème)
+script.js             reveal au scroll, menu mobile, filtre du catalogue, formulaire
+maison-pantheon.html  version autonome (tout-en-un) pour ouverture directe
 ```
 
 ## Direction artistique
 
-Construit avec le cadre [taste-skill](https://github.com/Leonxlnx/taste-skill)
-(design éditorial intentionnel plutôt que template générique) :
+Construit avec le cadre [taste-skill](https://github.com/Leonxlnx/taste-skill) :
 
-- **Lecture du brief** : landing éditoriale luxe, traiteur Paris 5e.
-- **Réglages** : variance de layout 7, intensité de motion 4, densité 3.
-- **Palette** : ivoire chaud + encre + un seul accent grenat (volontairement
-  loin du beige + laiton trop vu pour le haut de gamme).
-- **Typo** : Cormorant Garamond (titres) + Outfit (texte).
-- **Règles respectées** : zéro em-dash, pas de trois cartes identiques
-  (rangées éditoriales numérotées), un seul accent, un seul système de radius,
-  hero qui tient dans le viewport, contraste WCAG AA, motion respectant
-  `prefers-reduced-motion`.
+- **Palette** : terracotta + bleu + crème, inspirée de la boutique (terrazzo,
+  arches, bois clair).
+- **Typo** : Fraunces (titres), Ephesis (script de marque), Outfit (texte).
+- **Signature visuelle** : images en arche, rappelant l'architecture du lieu.
+- **Règles respectées** : zéro em-dash, palette de marque verrouillée, un seul
+  système de radius, hero contenu dans le viewport, contraste WCAG AA, motion
+  respectant `prefers-reduced-motion`.
 
-## Personnaliser
+## Sections
 
-- **Photos** : les images sont des substituts (`picsum.photos`). Remplacez les
-  URL `src` par vos vraies photos (boutique, plats, réceptions, matériel).
-- **Coordonnées** : adresse, téléphone et courriel sont à mettre à jour dans la
-  section contact et le pied de page de `index.html`.
-- **Formulaire** : actuellement une démo front. Pour recevoir les demandes,
-  branchez un service d'envoi (Formspree, Netlify Forms ou un backend).
-- **Couleurs / typo** : tout est centralisé dans les variables `:root` de
-  `styles.css`.
+Accueil · La Maison · Nos Univers (boutique + événementiel) · Traiteur
+(pré-commande et sur place) · Location de matériel (catalogue filtrable) ·
+Photographie · La Boutique (adresse, horaires) · Contact.
+
+## À personnaliser
+
+- **Photos** : substituts `picsum.photos`. Remplacez les URL `src` par vos
+  vraies photos (boutique, plats, fromages, cave, réceptions, matériel).
+- **Adresse de la boutique** : à compléter dans la section « La Boutique ».
+- **Coordonnées** : 06 95 32 44 33, pantheon.evenement@gmail.com,
+  Instagram @pantheon.evenement (modifiables dans `index.html`).
+- **Prix de location** : repris de votre catalogue, ajustables dans la section
+  « Location ».
+- **Formulaire** : démo front. Pour recevoir les demandes, branchez Formspree,
+  Netlify Forms ou un backend.
+- **Couleurs / typo** : centralisées dans les variables `:root` de `styles.css`.

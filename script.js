@@ -1,6 +1,6 @@
 // Maison Panthéon · interactions
-// Motion motivée : reveal au scroll (IntersectionObserver, jamais d'écouteur
-// scroll sur l'état), menu mobile, accusé d'envoi du formulaire.
+// Motion motivée : reveal au scroll (IntersectionObserver), menu mobile,
+// filtre du catalogue de location, accusé d'envoi du formulaire.
 
 (function () {
   "use strict";
@@ -19,7 +19,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
     revealables.forEach(function (el) { io.observe(el); });
   }
 
@@ -41,6 +41,25 @@
     });
   }
 
+  /* ---- Filtre du catalogue de location ---- */
+  var filters = document.querySelectorAll(".filter");
+  var produits = document.querySelectorAll(".produit");
+  if (filters.length && produits.length) {
+    filters.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-filter");
+        filters.forEach(function (b) {
+          var active = b === btn;
+          b.classList.toggle("is-active", active);
+          b.setAttribute("aria-pressed", String(active));
+        });
+        produits.forEach(function (p) {
+          p.hidden = !(cat === "all" || p.getAttribute("data-cat") === cat);
+        });
+      });
+    });
+  }
+
   /* ---- Formulaire (démo front, sans backend) ---- */
   var form = document.querySelector(".form");
   if (form) {
@@ -53,7 +72,7 @@
         note.textContent = "Merci de renseigner votre nom et votre courriel.";
         return;
       }
-      note.textContent = "Merci ! Votre demande est bien reçue, réponse sous 48 h.";
+      note.textContent = "Merci ! Votre demande est bien reçue, nous revenons vers vous rapidement.";
       form.reset();
     });
   }
