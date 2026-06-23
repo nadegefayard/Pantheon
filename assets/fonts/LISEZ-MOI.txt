@@ -1,0 +1,26 @@
+POLICES DES TITRES — Maison Panthéon
+=====================================
+
+Les titres utilisent COLDIAC (ou SS Bruney). Ces polices sont commerciales
+et ne peuvent pas être hébergées sur un CDN public, il faut donc déposer
+leurs fichiers ici.
+
+À FAIRE
+-------
+Placez dans ce dossier (assets/fonts/) les fichiers suivants :
+
+  Coldiac.woff2   (et/ou Coldiac.otf)
+  SSBruney.woff2  (et/ou SSBruney.otf)
+
+Le site les chargera automatiquement (voir @font-face dans styles.css).
+
+Astuce : si vous n'avez que le .otf ou .ttf, convertissez-le en .woff2
+(plus léger et plus rapide) sur un convertisseur en ligne, par exemple
+transfonter.org ou cloudconvert.com.
+
+EN ATTENDANT
+------------
+Tant que les fichiers ne sont pas présents, les titres s'affichent avec
+Cormorant Garamond, une serif élégante très proche, pour que le site reste
+beau. Une fois Coldiac/SS Bruney ajoutés, ils prennent le relais sans autre
+manipulation.
