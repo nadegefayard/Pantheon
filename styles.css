@@ -92,8 +92,9 @@ a { color: inherit; }
 
 .section-title {
   font-family: var(--serif); font-weight: 500; font-optical-sizing: auto;
-  font-size: clamp(2rem, 1.1rem + 3.6vw, 3.5rem);
-  line-height: 1.06; letter-spacing: -0.01em; margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 1.1rem + 3.2vw, 3.2rem);
+  line-height: 1.1; letter-spacing: 0.03em; margin: 0;
 }
 .section-title--center { text-align: center; }
 .section-title--light { color: var(--on-dark); }
@@ -169,7 +170,7 @@ a { color: inherit; }
   display: grid; grid-template-columns: 1.05fr 0.85fr; gap: clamp(2rem, 5vw, 5rem);
   align-items: center; min-height: calc(100svh - 78px);
 }
-.hero__title { font-family: var(--serif); font-weight: 500; font-size: clamp(2.7rem, 1.4rem + 6vw, 5.6rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 1.4rem; }
+.hero__title { font-family: var(--serif); font-weight: 500; text-transform: uppercase; font-size: clamp(2.4rem, 1.2rem + 5vw, 4.8rem); line-height: 1.06; letter-spacing: 0.02em; margin: 0 0 1.4rem; }
 .hero__title em { font-style: italic; color: var(--terra-ink); }
 .hero__lead { font-size: 1.16rem; color: var(--ink-soft); max-width: 36ch; margin: 0 0 2rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
@@ -207,7 +208,7 @@ a { color: inherit; }
 .univers { max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 7rem) var(--pad); }
 .univers__head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
 .univers__head .eyebrow { display: block; }
-.univers__group { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--terra-ink); margin: 2.5rem 0 1.4rem; }
+.univers__group { font-family: var(--serif); text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.15rem; color: var(--terra-ink); margin: 2.5rem 0 1.4rem; }
 .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2vw, 1.6rem); }
 .cards--three { grid-template-columns: repeat(3, 1fr); }
 .card {
@@ -219,7 +220,7 @@ a { color: inherit; }
 .card__media { margin: 0 0 1.1rem; overflow: hidden; }
 .card__media img { aspect-ratio: 3 / 3.4; transition: transform .6s var(--ease); }
 .card:hover .card__media img { transform: scale(1.04); }
-.card__title { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; margin: 0 0 0.5rem; line-height: 1.1; }
+.card__title { font-family: var(--serif); font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.22rem; margin: 0 0 0.5rem; line-height: 1.15; }
 .card__text { color: var(--ink-soft); font-size: 0.96rem; margin: 0 0 1.1rem; flex: 1; }
 
 /* =========================================================================
@@ -230,7 +231,7 @@ a { color: inherit; }
 .traiteur__intro p { color: var(--ink-soft); margin: 1.3rem 0 0; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding: clamp(1.5rem, 3vw, 2.5rem) 0; }
 .split--reverse .split__media { order: -1; }
-.split__title { font-family: var(--serif); font-weight: 500; font-size: clamp(1.6rem, 1rem + 1.6vw, 2.2rem); margin: 0 0 1rem; color: var(--terra-ink); }
+.split__title { font-family: var(--serif); font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; font-size: clamp(1.5rem, 1rem + 1.4vw, 2rem); margin: 0 0 1rem; color: var(--terra-ink); }
 .split__text p { color: var(--ink-soft); margin: 0 0 1rem; }
 .split__label { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); font-weight: 500; margin-top: 1.4rem; }
 .split__note { font-style: italic; }
@@ -261,7 +262,7 @@ a { color: inherit; }
 .produit figure { margin: 0; overflow: hidden; }
 .produit img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; transition: transform .6s var(--ease); }
 .produit:hover img { transform: scale(1.05); }
-.produit h3 { font-family: var(--serif); font-weight: 500; font-size: 1.12rem; margin: 0.9rem 1rem 0.2rem; }
+.produit h3 { font-family: var(--serif); font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.05rem; margin: 0.9rem 1rem 0.2rem; }
 .produit .prix { margin: 0 1rem 1.1rem; color: var(--terra-ink); font-weight: 500; font-size: 0.95rem; }
 .produit[hidden] { display: none; }
 .location__cta { margin-top: 2.6rem; text-align: center; }
