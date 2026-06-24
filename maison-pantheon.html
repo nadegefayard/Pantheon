@@ -345,11 +345,14 @@ a { color: inherit; }
 .boutique { background: var(--terra); color: var(--on-dark); }
 .boutique {
   max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 7rem) var(--pad);
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  display: flex; flex-direction: column; gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 .boutique { position: relative; }
 .boutique::before { content: ""; position: absolute; inset: 0; background: var(--terra); z-index: -1; left: 50%; transform: translateX(-50%); width: 100vw; }
+.boutique__top { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .boutique__text p { color: #fbeee2; max-width: 42ch; }
+.boutique__shop-title { color: #fbe7d6; text-align: center; margin: 0 0 1.6rem; }
+.boutique .card__title { color: var(--ink); }
 .infos { margin: 2rem 0; display: grid; gap: 1.3rem; }
 .infos dt { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #fbe0cd; margin-bottom: 0.3rem; }
 .infos dd { margin: 0; font-size: 1.05rem; }
@@ -420,7 +423,7 @@ a { color: inherit; }
   .hero__media { order: -1; }
   .hero__media img { aspect-ratio: 16 / 12; }
 
-  .maison, .photo, .boutique, .contact { grid-template-columns: 1fr; }
+  .maison, .photo, .boutique__top, .contact { grid-template-columns: 1fr; }
   .maison__media, .photo .photo__text { order: -1; }
   .boutique__media { order: -1; }
   .split, .split--reverse { grid-template-columns: 1fr; }
@@ -455,7 +458,7 @@ a { color: inherit; }
       <nav class="nav__links" aria-label="Navigation principale">
         <a href="#boutique">La Boutique</a>
         <div class="nav__item nav__item--menu">
-          <a href="#traiteur" class="nav__toplink" aria-haspopup="true" aria-expanded="false">Vos événements</a>
+          <a href="#evenements" class="nav__toplink" aria-haspopup="true" aria-expanded="false">Vos événements</a>
           <div class="nav__dropdown" role="menu" aria-label="Vos événements">
             <a href="#traiteur" role="menuitem">Traiteur</a>
             <a href="#location" role="menuitem">Location de matériel</a>
@@ -478,11 +481,11 @@ a { color: inherit; }
         <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
       </form>
       <a href="#maison">La Maison</a>
-      <a href="#univers">Nos Univers</a>
       <a href="#boutique">La Boutique</a>
+      <a href="#evenements">Vos événements</a>
+      <a href="#traiteur">Traiteur</a>
       <a href="#location">Location de matériel</a>
       <a href="#photographie">Photographie</a>
-      <a href="#traiteur">Traiteur</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -502,7 +505,7 @@ a { color: inherit; }
         </p>
         <div class="hero__actions">
           <a class="btn btn--solid" href="#boutique">Poussez la porte</a>
-          <a class="btn btn--ghost" href="#univers">Nos univers</a>
+          <a class="btn btn--ghost" href="#evenements">Vos événements</a>
         </div>
       </div>
       <figure class="hero__media" data-reveal>
@@ -545,37 +548,14 @@ a { color: inherit; }
     </section>
 
     <!-- NOS UNIVERS -->
-    <section class="univers" id="univers" aria-labelledby="univers-titre">
+    <section class="univers" id="evenements" aria-labelledby="evenements-titre">
       <div class="univers__head" data-reveal>
-        <p class="eyebrow eyebrow--terra">Nos univers</p>
-        <h2 id="univers-titre" class="section-title section-title--center">
-          Plusieurs métiers,<br />une même exigence
+        <p class="eyebrow eyebrow--terra">Vos événements</p>
+        <h2 id="evenements-titre" class="section-title section-title--center">
+          Tout pour recevoir,<br />en un seul endroit
         </h2>
       </div>
 
-      <p class="univers__group" data-reveal>En boutique</p>
-      <div class="cards cards--three">
-        <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Nos produits et notre gastronomie" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Notre gastronomie</h3>
-          <p class="card__text">Plats préparés, pièces salées et douceurs maison, façonnés chaque jour avec de beaux produits.</p>
-          <a class="link-arrow" href="#boutique">Découvrir</a>
-        </article>
-        <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1sPbwM_NVAje0tL7R1nGvXUbiZ_XIu-zh&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u2/700/760'" alt="Étal de fromages et charcuteries" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Fromages & crèmerie</h3>
-          <p class="card__text">Une sélection de fromages affinés et de produits laitiers fermiers, à la coupe.</p>
-          <a class="link-arrow" href="#boutique">Découvrir</a>
-        </article>
-        <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1iTHvtzXd3FTqCqunVqRm2b3chU5_qI1C&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u3/700/760'" alt="Cave et vins" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Cave & vins</h3>
-          <p class="card__text">Vins de vignerons et belles étiquettes pour accompagner chacun de vos moments.</p>
-          <a class="link-arrow" href="#boutique">Découvrir</a>
-        </article>
-      </div>
-
-      <p class="univers__group" data-reveal>Pour vos événements</p>
       <div class="cards cards--three">
         <article class="card" data-reveal>
           <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1kZu-pI8qJuGR7YW6v38kQDaNzekzmiI9&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-e1/700/760'" alt="Pièces cocktail de réception" loading="lazy" width="700" height="760" /></figure>
@@ -703,21 +683,44 @@ a { color: inherit; }
 
     <!-- LA BOUTIQUE -->
     <section class="boutique" id="boutique" aria-labelledby="boutique-titre">
-      <div class="boutique__text" data-reveal>
-        <p class="eyebrow eyebrow--sand">La Boutique</p>
-        <h2 id="boutique-titre" class="section-title section-title--light">Poussez la porte</h2>
-        <p>Terrazzo au sol, arches de fromages et de vins, bois chaleureux : un lieu pensé comme une invitation à prendre le temps. Venez flâner, déguster, et composer votre table.</p>
-        <dl class="infos">
-          <div><dt>Adresse</dt><dd>[ Adresse de la boutique à compléter ]</dd></div>
-          <div><dt>Horaires</dt><dd>Du mardi au samedi · 9h à 19h30<br />Dimanche · 9h à 13h</dd></div>
-        </dl>
-        <div class="boutique__actions">
-          <a class="btn btn--cream" href="#contact">Nous écrire</a>
+      <div class="boutique__top">
+        <div class="boutique__text" data-reveal>
+          <p class="eyebrow eyebrow--sand">La Boutique</p>
+          <h2 id="boutique-titre" class="section-title section-title--light">Poussez la porte</h2>
+          <p>Terrazzo au sol, arches de fromages et de vins, bois chaleureux : un lieu pensé comme une invitation à prendre le temps. Venez flâner, déguster, et composer votre table.</p>
+          <dl class="infos">
+            <div><dt>Adresse</dt><dd>[ Adresse de la boutique à compléter ]</dd></div>
+            <div><dt>Horaires</dt><dd>Du mardi au samedi · 9h à 19h30<br />Dimanche · 9h à 13h</dd></div>
+          </dl>
+          <div class="boutique__actions">
+            <a class="btn btn--cream" href="#contact">Nous écrire</a>
+          </div>
+        </div>
+        <figure class="boutique__media" data-reveal>
+          <img class="arch" src="https://drive.google.com/thumbnail?id=1yXLjdvpT_72hFo4xYUglEeTzCKfb1uyV&sz=w1200" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-boutique/1000/1240'" alt="Maison Panthéon" loading="lazy" width="1000" height="1240" />
+        </figure>
+      </div>
+
+      <div class="boutique__shop" data-reveal>
+        <p class="univers__group boutique__shop-title">En boutique</p>
+        <div class="cards cards--three">
+          <article class="card" data-reveal>
+            <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Nos produits et notre gastronomie" loading="lazy" width="700" height="760" /></figure>
+            <h3 class="card__title">Notre gastronomie</h3>
+            <p class="card__text">Plats préparés, pièces salées et douceurs maison, façonnés chaque jour avec de beaux produits.</p>
+          </article>
+          <article class="card" data-reveal>
+            <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1sPbwM_NVAje0tL7R1nGvXUbiZ_XIu-zh&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u2/700/760'" alt="Étal de fromages et charcuteries" loading="lazy" width="700" height="760" /></figure>
+            <h3 class="card__title">Fromages & crèmerie</h3>
+            <p class="card__text">Une sélection de fromages affinés et de produits laitiers fermiers, à la coupe.</p>
+          </article>
+          <article class="card" data-reveal>
+            <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1iTHvtzXd3FTqCqunVqRm2b3chU5_qI1C&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u3/700/760'" alt="Cave et vins" loading="lazy" width="700" height="760" /></figure>
+            <h3 class="card__title">Cave & vins</h3>
+            <p class="card__text">Vins de vignerons et belles étiquettes pour accompagner chacun de vos moments.</p>
+          </article>
         </div>
       </div>
-      <figure class="boutique__media" data-reveal>
-        <img class="arch" src="https://drive.google.com/thumbnail?id=1yXLjdvpT_72hFo4xYUglEeTzCKfb1uyV&sz=w1200" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-boutique/1000/1240'" alt="Maison Panthéon" loading="lazy" width="1000" height="1240" />
-      </figure>
     </section>
 
     <!-- CONTACT -->
@@ -768,9 +771,9 @@ a { color: inherit; }
       </div>
       <nav class="footer__links" aria-label="Pied de page">
         <a href="#maison">La Maison</a>
-        <a href="#univers">Nos Univers</a>
-        <a href="#location">Location</a>
         <a href="#boutique">La Boutique</a>
+        <a href="#evenements">Vos événements</a>
+        <a href="#location">Location de matériel</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="footer__contact">

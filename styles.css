@@ -326,11 +326,14 @@ a { color: inherit; }
 .boutique { background: var(--terra); color: var(--on-dark); }
 .boutique {
   max-width: var(--maxw); margin: 0 auto; padding: clamp(3.5rem, 6vw, 7rem) var(--pad);
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  display: flex; flex-direction: column; gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 .boutique { position: relative; }
 .boutique::before { content: ""; position: absolute; inset: 0; background: var(--terra); z-index: -1; left: 50%; transform: translateX(-50%); width: 100vw; }
+.boutique__top { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .boutique__text p { color: #fbeee2; max-width: 42ch; }
+.boutique__shop-title { color: #fbe7d6; text-align: center; margin: 0 0 1.6rem; }
+.boutique .card__title { color: var(--ink); }
 .infos { margin: 2rem 0; display: grid; gap: 1.3rem; }
 .infos dt { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #fbe0cd; margin-bottom: 0.3rem; }
 .infos dd { margin: 0; font-size: 1.05rem; }
@@ -401,7 +404,7 @@ a { color: inherit; }
   .hero__media { order: -1; }
   .hero__media img { aspect-ratio: 16 / 12; }
 
-  .maison, .photo, .boutique, .contact { grid-template-columns: 1fr; }
+  .maison, .photo, .boutique__top, .contact { grid-template-columns: 1fr; }
   .maison__media, .photo .photo__text { order: -1; }
   .boutique__media { order: -1; }
   .split, .split--reverse { grid-template-columns: 1fr; }
