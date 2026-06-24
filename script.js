@@ -28,9 +28,9 @@
         intro.classList.add("is-done");
         root.classList.remove("is-door-closed");
       };
-      var rightPanel = intro.querySelector(".door-intro__panel--right");
-      if (rightPanel) rightPanel.addEventListener("animationend", finish);
-      window.setTimeout(finish, 3200);
+      var arch = intro.querySelector(".door-intro__arch");
+      if (arch) arch.addEventListener("animationend", finish);
+      window.setTimeout(finish, 3400);
     }
   }
 
