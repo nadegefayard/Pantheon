@@ -7,6 +7,33 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- Intro : ouverture de portes ---- */
+  var intro = document.getElementById("door-intro");
+  if (intro) {
+    if (reduced) {
+      intro.remove();
+    } else {
+      var seal = intro.querySelector(".door-intro__seal");
+      var mark = document.querySelector(".footer__brand .logo--mark") || document.querySelector(".logo--mark");
+      if (seal && mark) {
+        var clone = mark.cloneNode(true);
+        clone.removeAttribute("width");
+        clone.removeAttribute("height");
+        clone.classList.add("logo--light");
+        seal.appendChild(clone);
+      }
+      var root = document.documentElement;
+      root.classList.add("is-door-closed");
+      var finish = function () {
+        intro.classList.add("is-done");
+        root.classList.remove("is-door-closed");
+      };
+      var rightPanel = intro.querySelector(".door-intro__panel--right");
+      if (rightPanel) rightPanel.addEventListener("animationend", finish);
+      window.setTimeout(finish, 3200);
+    }
+  }
+
   /* ---- Reveal au scroll ---- */
   var revealables = document.querySelectorAll("[data-reveal]");
   if (reduced || !("IntersectionObserver" in window)) {
