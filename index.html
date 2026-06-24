@@ -36,21 +36,30 @@
       <nav class="nav__links" aria-label="Navigation principale">
         <a href="#maison">La Maison</a>
         <a href="#univers">Nos Univers</a>
-        <a href="#location">Location</a>
         <a href="#boutique">La Boutique</a>
+        <a href="#location">Location de matériel</a>
+        <a href="#photographie">Photographie</a>
       </nav>
+      <form class="nav__search" role="search" aria-label="Rechercher un article">
+        <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+        <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
+      </form>
       <a class="btn btn--solid nav__cta" href="#contact">Contact</a>
       <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span>
       </button>
     </div>
     <nav class="nav__mobile" id="menu-mobile" aria-label="Navigation mobile" hidden>
+      <form class="nav__search nav__search--mobile" role="search" aria-label="Rechercher un article">
+        <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+        <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
+      </form>
       <a href="#maison">La Maison</a>
       <a href="#univers">Nos Univers</a>
-      <a href="#traiteur">Traiteur</a>
-      <a href="#location">Location</a>
-      <a href="#photographie">Photographie</a>
       <a href="#boutique">La Boutique</a>
+      <a href="#location">Location de matériel</a>
+      <a href="#photographie">Photographie</a>
+      <a href="#traiteur">Traiteur</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -122,12 +131,12 @@
       </div>
 
       <p class="univers__group" data-reveal>En boutique</p>
-      <div class="cards">
+      <div class="cards cards--three">
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Préparation traiteur sur place" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Traiteur sur place</h3>
-          <p class="card__text">Plats du jour, pièces salées et plateaux préparés chaque matin, à emporter ou à savourer sur place.</p>
-          <a class="link-arrow" href="#traiteur">Découvrir</a>
+          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Nos produits et notre gastronomie" loading="lazy" width="700" height="760" /></figure>
+          <h3 class="card__title">Notre gastronomie</h3>
+          <p class="card__text">Plats préparés, pièces salées et douceurs maison, façonnés chaque jour avec de beaux produits.</p>
+          <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
         <article class="card" data-reveal>
           <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1sPbwM_NVAje0tL7R1nGvXUbiZ_XIu-zh&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u2/700/760'" alt="Étal de fromages et charcuteries" loading="lazy" width="700" height="760" /></figure>
@@ -139,12 +148,6 @@
           <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1iTHvtzXd3FTqCqunVqRm2b3chU5_qI1C&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u3/700/760'" alt="Cave et vins" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Cave & vins</h3>
           <p class="card__text">Vins de vignerons et belles étiquettes pour accompagner chacun de vos moments.</p>
-          <a class="link-arrow" href="#boutique">Découvrir</a>
-        </article>
-        <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1y5zZCNL_9vPd4y4krJdPnbSYalzTnGgl&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u4/700/760'" alt="Épicerie fine" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Épicerie fine</h3>
-          <p class="card__text">Conserves, condiments et douceurs de petits producteurs, sélectionnés avec soin.</p>
           <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
       </div>
@@ -252,6 +255,8 @@
         <article class="produit" data-cat="deco"><figure><img src="https://drive.google.com/thumbnail?id=1AAZqRB6ZiXTduD43wL50np9dvAv2l5gg&sz=w800" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-tapis/600/600'" alt="Tapis de cérémonie" loading="lazy" width="600" height="600" /></figure><h3>Tapis de cérémonie</h3><p class="prix">Sur devis</p></article>
         <article class="produit" data-cat="photobooth"><figure><img src="https://drive.google.com/thumbnail?id=19i9SNQ4ruxMg4P2dZmdwZrUlaIqsLMCV&sz=w800" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-photobooth/600/600'" alt="Photobooth" loading="lazy" width="600" height="600" /></figure><h3>Photobooth</h3><p class="prix">Sur devis</p></article>
       </div>
+
+      <p class="catalogue__empty" hidden>Aucun article ne correspond à votre recherche.</p>
 
       <div class="location__cta" data-reveal>
         <a class="btn btn--solid" href="#contact">Demander un devis</a>

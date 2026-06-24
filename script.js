@@ -60,6 +60,58 @@
     });
   }
 
+  /* ---- Recherche d'articles ---- */
+  var searchInputs = document.querySelectorAll(".nav__search-input");
+  var emptyMsg = document.querySelector(".catalogue__empty");
+  var location = document.getElementById("location");
+  function normalize(s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  function applySearch(term) {
+    var q = normalize(term).trim();
+    if (!q) {
+      // recherche vide : on rend la main au filtre par catégorie actif
+      var active = document.querySelector(".filter.is-active");
+      var cat = active ? active.getAttribute("data-filter") : "all";
+      produits.forEach(function (p) {
+        p.hidden = !(cat === "all" || p.getAttribute("data-cat") === cat);
+      });
+      if (emptyMsg) emptyMsg.hidden = true;
+      return;
+    }
+    var visible = 0;
+    produits.forEach(function (p) {
+      var title = p.querySelector("h3");
+      var match = normalize(title ? title.textContent : "").indexOf(q) !== -1;
+      p.hidden = !match;
+      if (match) visible++;
+    });
+    if (emptyMsg) emptyMsg.hidden = visible !== 0;
+  }
+  if (searchInputs.length && produits.length) {
+    searchInputs.forEach(function (input) {
+      var hadTerm = false;
+      input.addEventListener("input", function () {
+        var term = input.value;
+        // synchronise les autres champs de recherche
+        searchInputs.forEach(function (other) {
+          if (other !== input) other.value = term;
+        });
+        applySearch(term);
+        // amène le catalogue à l'écran au premier caractère saisi
+        var hasTerm = term.trim().length > 0;
+        if (hasTerm && !hadTerm && location) {
+          location.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+        }
+        hadTerm = hasTerm;
+      });
+      input.closest("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (location) location.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      });
+    });
+  }
+
   /* ---- Formulaire (démo front, sans backend) ---- */
   var form = document.querySelector(".form");
   if (form) {

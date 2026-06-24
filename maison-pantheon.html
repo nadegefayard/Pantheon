@@ -172,6 +172,15 @@ a { color: inherit; }
 .nav__links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--terra); transition: width .3s var(--ease); }
 .nav__links a:hover::after { width: 100%; }
 
+.nav__search { display: flex; align-items: center; gap: 0.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.85rem; transition: border-color .3s var(--ease), box-shadow .3s var(--ease); }
+.nav__search:focus-within { border-color: var(--terra); box-shadow: 0 0 0 3px rgba(191,102,69,0.12); }
+.nav__search-icon { width: 16px; height: 16px; flex: none; fill: none; stroke: var(--ink-soft); stroke-width: 2; stroke-linecap: round; }
+.nav__search-input { border: 0; background: none; outline: none; font: inherit; font-size: 0.82rem; color: var(--ink); width: 9.5rem; }
+.nav__search-input::placeholder { color: var(--ink-soft); }
+.nav__search--mobile { display: flex; width: 100%; margin-bottom: 0.6rem; }
+.nav__search--mobile .nav__search-input { width: 100%; }
+.catalogue__empty { text-align: center; color: var(--ink-soft); font-style: italic; margin: 1.5rem 0 0; }
+
 .nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; }
 .nav__burger span { width: 24px; height: 2px; background: var(--ink); transition: transform .3s var(--ease); }
 .nav__burger[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
@@ -376,7 +385,7 @@ a { color: inherit; }
   .catalogue { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 880px) {
-  .nav__links, .nav__cta { display: none; }
+  .nav__links, .nav__cta, .nav__inner .nav__search { display: none; }
   .nav__burger { display: flex; }
   .nav__mobile:not([hidden]) { display: flex; }
 
@@ -419,21 +428,30 @@ a { color: inherit; }
       <nav class="nav__links" aria-label="Navigation principale">
         <a href="#maison">La Maison</a>
         <a href="#univers">Nos Univers</a>
-        <a href="#location">Location</a>
         <a href="#boutique">La Boutique</a>
+        <a href="#location">Location de matériel</a>
+        <a href="#photographie">Photographie</a>
       </nav>
+      <form class="nav__search" role="search" aria-label="Rechercher un article">
+        <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+        <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
+      </form>
       <a class="btn btn--solid nav__cta" href="#contact">Contact</a>
       <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span>
       </button>
     </div>
     <nav class="nav__mobile" id="menu-mobile" aria-label="Navigation mobile" hidden>
+      <form class="nav__search nav__search--mobile" role="search" aria-label="Rechercher un article">
+        <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+        <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
+      </form>
       <a href="#maison">La Maison</a>
       <a href="#univers">Nos Univers</a>
-      <a href="#traiteur">Traiteur</a>
-      <a href="#location">Location</a>
-      <a href="#photographie">Photographie</a>
       <a href="#boutique">La Boutique</a>
+      <a href="#location">Location de matériel</a>
+      <a href="#photographie">Photographie</a>
+      <a href="#traiteur">Traiteur</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -505,12 +523,12 @@ a { color: inherit; }
       </div>
 
       <p class="univers__group" data-reveal>En boutique</p>
-      <div class="cards">
+      <div class="cards cards--three">
         <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Préparation traiteur sur place" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Traiteur sur place</h3>
-          <p class="card__text">Plats du jour, pièces salées et plateaux préparés chaque matin, à emporter ou à savourer sur place.</p>
-          <a class="link-arrow" href="#traiteur">Découvrir</a>
+          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1eXwDC26rUy_OnimlCq9aIZownrfuRkOY&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u1/700/760'" alt="Nos produits et notre gastronomie" loading="lazy" width="700" height="760" /></figure>
+          <h3 class="card__title">Notre gastronomie</h3>
+          <p class="card__text">Plats préparés, pièces salées et douceurs maison, façonnés chaque jour avec de beaux produits.</p>
+          <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
         <article class="card" data-reveal>
           <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1sPbwM_NVAje0tL7R1nGvXUbiZ_XIu-zh&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u2/700/760'" alt="Étal de fromages et charcuteries" loading="lazy" width="700" height="760" /></figure>
@@ -522,12 +540,6 @@ a { color: inherit; }
           <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1iTHvtzXd3FTqCqunVqRm2b3chU5_qI1C&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u3/700/760'" alt="Cave et vins" loading="lazy" width="700" height="760" /></figure>
           <h3 class="card__title">Cave & vins</h3>
           <p class="card__text">Vins de vignerons et belles étiquettes pour accompagner chacun de vos moments.</p>
-          <a class="link-arrow" href="#boutique">Découvrir</a>
-        </article>
-        <article class="card" data-reveal>
-          <figure class="card__media"><img class="arch arch--sm" src="https://drive.google.com/thumbnail?id=1y5zZCNL_9vPd4y4krJdPnbSYalzTnGgl&sz=w1000" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-u4/700/760'" alt="Épicerie fine" loading="lazy" width="700" height="760" /></figure>
-          <h3 class="card__title">Épicerie fine</h3>
-          <p class="card__text">Conserves, condiments et douceurs de petits producteurs, sélectionnés avec soin.</p>
           <a class="link-arrow" href="#boutique">Découvrir</a>
         </article>
       </div>
@@ -635,6 +647,8 @@ a { color: inherit; }
         <article class="produit" data-cat="deco"><figure><img src="https://drive.google.com/thumbnail?id=1AAZqRB6ZiXTduD43wL50np9dvAv2l5gg&sz=w800" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-tapis/600/600'" alt="Tapis de cérémonie" loading="lazy" width="600" height="600" /></figure><h3>Tapis de cérémonie</h3><p class="prix">Sur devis</p></article>
         <article class="produit" data-cat="photobooth"><figure><img src="https://drive.google.com/thumbnail?id=19i9SNQ4ruxMg4P2dZmdwZrUlaIqsLMCV&sz=w800" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mp-photobooth/600/600'" alt="Photobooth" loading="lazy" width="600" height="600" /></figure><h3>Photobooth</h3><p class="prix">Sur devis</p></article>
       </div>
+
+      <p class="catalogue__empty" hidden>Aucun article ne correspond à votre recherche.</p>
 
       <div class="location__cta" data-reveal>
         <a class="btn btn--solid" href="#contact">Demander un devis</a>
@@ -796,6 +810,58 @@ a { color: inherit; }
         produits.forEach(function (p) {
           p.hidden = !(cat === "all" || p.getAttribute("data-cat") === cat);
         });
+      });
+    });
+  }
+
+  /* ---- Recherche d'articles ---- */
+  var searchInputs = document.querySelectorAll(".nav__search-input");
+  var emptyMsg = document.querySelector(".catalogue__empty");
+  var location = document.getElementById("location");
+  function normalize(s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  function applySearch(term) {
+    var q = normalize(term).trim();
+    if (!q) {
+      // recherche vide : on rend la main au filtre par catégorie actif
+      var active = document.querySelector(".filter.is-active");
+      var cat = active ? active.getAttribute("data-filter") : "all";
+      produits.forEach(function (p) {
+        p.hidden = !(cat === "all" || p.getAttribute("data-cat") === cat);
+      });
+      if (emptyMsg) emptyMsg.hidden = true;
+      return;
+    }
+    var visible = 0;
+    produits.forEach(function (p) {
+      var title = p.querySelector("h3");
+      var match = normalize(title ? title.textContent : "").indexOf(q) !== -1;
+      p.hidden = !match;
+      if (match) visible++;
+    });
+    if (emptyMsg) emptyMsg.hidden = visible !== 0;
+  }
+  if (searchInputs.length && produits.length) {
+    searchInputs.forEach(function (input) {
+      var hadTerm = false;
+      input.addEventListener("input", function () {
+        var term = input.value;
+        // synchronise les autres champs de recherche
+        searchInputs.forEach(function (other) {
+          if (other !== input) other.value = term;
+        });
+        applySearch(term);
+        // amène le catalogue à l'écran au premier caractère saisi
+        var hasTerm = term.trim().length > 0;
+        if (hasTerm && !hadTerm && location) {
+          location.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+        }
+        hadTerm = hasTerm;
+      });
+      input.closest("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (location) location.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
       });
     });
   }
