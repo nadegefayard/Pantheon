@@ -28,8 +28,9 @@
         intro.classList.add("is-done");
         root.classList.remove("is-door-closed");
       };
-      var arch = intro.querySelector(".door-intro__arch");
-      if (arch) arch.addEventListener("animationend", finish);
+      intro.addEventListener("animationend", function (e) {
+        if (e.animationName === "introOut") finish();
+      });
       window.setTimeout(finish, 3400);
     }
   }
