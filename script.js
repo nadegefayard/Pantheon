@@ -103,6 +103,40 @@
     });
     if (emptyMsg) emptyMsg.hidden = visible !== 0;
   }
+  /* loupe repliable (barre du haut) */
+  var searchToggle = document.querySelector(".nav__inner .nav__search-toggle");
+  if (searchToggle) {
+    var searchForm = searchToggle.closest(".nav__search");
+    var searchField = searchForm.querySelector(".nav__search-input");
+    var openSearch = function () {
+      searchForm.classList.add("is-open");
+      searchToggle.setAttribute("aria-expanded", "true");
+      searchToggle.setAttribute("aria-label", "Fermer la recherche");
+      searchField.focus();
+    };
+    var closeSearch = function () {
+      searchForm.classList.remove("is-open");
+      searchToggle.setAttribute("aria-expanded", "false");
+      searchToggle.setAttribute("aria-label", "Ouvrir la recherche");
+    };
+    searchToggle.addEventListener("click", function () {
+      if (searchForm.classList.contains("is-open")) {
+        if (searchField.value.trim()) { searchField.value = ""; searchField.dispatchEvent(new Event("input")); }
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    });
+    searchField.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { searchField.value = ""; searchField.dispatchEvent(new Event("input")); closeSearch(); searchToggle.focus(); }
+    });
+    document.addEventListener("click", function (e) {
+      if (searchForm.classList.contains("is-open") && !searchForm.contains(e.target) && !searchField.value.trim()) {
+        closeSearch();
+      }
+    });
+  }
+
   if (searchInputs.length && produits.length) {
     searchInputs.forEach(function (input) {
       var hadTerm = false;

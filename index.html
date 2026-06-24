@@ -46,8 +46,10 @@
         </div>
       </nav>
       <form class="nav__search" role="search" aria-label="Rechercher un article">
-        <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
         <input type="search" class="nav__search-input" placeholder="Rechercher un article…" aria-label="Rechercher un article de location" autocomplete="off" />
+        <button type="button" class="nav__search-toggle" aria-label="Ouvrir la recherche" aria-expanded="false">
+          <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+        </button>
       </form>
       <a class="btn btn--solid nav__cta" href="#contact">Contact</a>
       <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
