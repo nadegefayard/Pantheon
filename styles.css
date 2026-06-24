@@ -141,8 +141,7 @@ a { color: inherit; }
 .nav__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); height: 78px; display: flex; align-items: center; gap: 1.25rem; }
 .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
 .logo { width: 48px; height: 36px; overflow: visible; flex: none; }
-.logo--badge { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; background: #000; display: block; }
-.footer__brand .logo--badge { box-shadow: 0 0 0 1px rgba(255,255,255,0.10); }
+.logo--mark { width: auto; height: 45px; display: block; background: none; }
 .logo__m, .logo__p { font-family: var(--serif); font-weight: 500; }
 .logo__m { fill: var(--ink); font-size: 50px; }
 .logo__p { fill: var(--gold); font-size: 57px; }
