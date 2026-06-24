@@ -41,6 +41,21 @@
     });
   }
 
+  /* ---- Menu déroulant "Nos Univers" ---- */
+  var dropItem = document.querySelector(".nav__item--menu");
+  if (dropItem) {
+    var topLink = dropItem.querySelector(".nav__toplink");
+    var setExpanded = function (state) {
+      if (topLink) topLink.setAttribute("aria-expanded", String(state));
+    };
+    dropItem.addEventListener("mouseenter", function () { setExpanded(true); });
+    dropItem.addEventListener("mouseleave", function () { setExpanded(false); });
+    dropItem.addEventListener("focusin", function () { setExpanded(true); });
+    dropItem.addEventListener("focusout", function (e) {
+      if (!dropItem.contains(e.relatedTarget)) setExpanded(false);
+    });
+  }
+
   /* ---- Filtre du catalogue de location ---- */
   var filters = document.querySelectorAll(".filter");
   var produits = document.querySelectorAll(".produit");

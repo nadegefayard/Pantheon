@@ -34,11 +34,14 @@
         </span>
       </a>
       <nav class="nav__links" aria-label="Navigation principale">
-        <a href="#maison">La Maison</a>
-        <a href="#univers">Nos Univers</a>
-        <a href="#boutique">La Boutique</a>
-        <a href="#location">Location de matériel</a>
-        <a href="#photographie">Photographie</a>
+        <div class="nav__item nav__item--menu">
+          <a href="#univers" class="nav__toplink" aria-haspopup="true" aria-expanded="false">Nos Univers</a>
+          <div class="nav__dropdown" role="menu" aria-label="Nos univers">
+            <a href="#boutique" role="menuitem">La Boutique</a>
+            <a href="#location" role="menuitem">Location de matériel</a>
+            <a href="#photographie" role="menuitem">Photographie</a>
+          </div>
+        </div>
       </nav>
       <form class="nav__search" role="search" aria-label="Rechercher un article">
         <svg class="nav__search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
